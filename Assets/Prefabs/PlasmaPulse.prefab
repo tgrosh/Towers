@@ -127,4 +127,5 @@ MonoBehaviour:
   speed: 50
   sparksEffect: {fileID: 1363452822796664, guid: 658b88344203e044fb041a7fa8517546,
     type: 2}
+  damageAmount: 30
   damageType: 0

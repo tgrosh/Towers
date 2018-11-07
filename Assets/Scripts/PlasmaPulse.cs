@@ -6,14 +6,16 @@ public class PlasmaPulse : MonoBehaviour
 {
     public float speed;
     public GameObject sparksEffect;
+    public int damageAmount;
     public DamageType damageType;
 
-    Transform target;    
+    Transform target;
+    Damage damageTarget;
 
     // Use this for initialization
     void Start()
     {
-
+        damageTarget = target.gameObject.GetComponent<Damage>();
     }
 
     // Update is called once per frame
@@ -26,6 +28,7 @@ public class PlasmaPulse : MonoBehaviour
 
             if (Vector3.Distance(transform.position, target.position) < 1f)
             {
+                DealDamage();
                 Explode();
             }
         }
@@ -34,6 +37,14 @@ public class PlasmaPulse : MonoBehaviour
     public void Fire(Transform target)
     {
         this.target = target;
+    }
+
+    private void DealDamage()
+    {
+        if (damageTarget != null)
+        {
+            damageTarget.Harm(damageAmount, damageType);
+        }
     }
 
     private void Explode()

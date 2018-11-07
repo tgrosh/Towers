@@ -27,6 +27,13 @@ public class PulseCannon : MonoBehaviour
     {
         if (targets.Count > 0)
         {
+            if (targets[0] == null)
+            {
+                targets.RemoveAt(0);
+                lookTime = 0f;
+                return;
+            }
+
             lookTime += Time.deltaTime;            
             Vector3 direction = targets[0].transform.position - body.transform.position;
             Quaternion toRotation = Quaternion.LookRotation(direction);
