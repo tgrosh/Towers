@@ -9,12 +9,14 @@ public class UI : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject buildAreaMenu;
     public GameObject buildMenu;
+    public int wavesToDisplay;
     public GameObject wavePanel;
     public GameObject waveUIPrefab;
     public GameObject groupUIPrefab;
     
     private BuildArea currentBuildArea;
     private Vector3 menuPosition;
+    private List<Wave> waves = new List<Wave>();
 
     private void Awake()
     {
@@ -73,7 +75,7 @@ public class UI : MonoBehaviour
         HideBuildMenu();
     }    
 
-    public void PushWave(Wave wave)
+    public void EnqueueWave(Wave wave)
     {
         GameObject waveUI = Instantiate(waveUIPrefab, wavePanel.transform);
         waveUI.GetComponent<LayoutElement>().minHeight = (waveUI.GetComponent<LayoutElement>().minHeight * wave.groups.Length) + 5;
@@ -86,7 +88,7 @@ public class UI : MonoBehaviour
         }
     }
 
-    public void PopWave()
+    public void DequeueWave()
     {
         wavePanel.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Exit");
         Destroy(wavePanel.transform.GetChild(1).gameObject, 1);

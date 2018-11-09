@@ -21,14 +21,20 @@ public class WaveSpawner : MonoBehaviour {
         Gizmos.DrawSphere(transform.position, transform.localScale.x);
     }
 
-    void Start () {
-		foreach (Wave wave in waves)
+    void Start ()
+    {
+        int wavesDisplayed = 0;
+        foreach (Wave wave in waves)
         {
-            UI.instance.PushWave(wave);
+            if (wavesDisplayed < UI.instance.wavesToDisplay)
+            {
+                UI.instance.EnqueueWave(wave);
+            }
+            wavesDisplayed++;
         }
-	}
-	
-	void Update () {
+    }
+    
+    void Update () {
         if (currentWave >= waves.Length)
         {
             return;
@@ -63,7 +69,11 @@ public class WaveSpawner : MonoBehaviour {
             {
                 currentWave++;
                 waveTimer = 0;
-                UI.instance.PopWave();
+                UI.instance.DequeueWave();
+                if (waves.Length >= currentWave + UI.instance.wavesToDisplay)
+                {
+                    UI.instance.EnqueueWave(waves[currentWave + UI.instance.wavesToDisplay - 1]);
+                }
             }
         }
     }
