@@ -5,9 +5,9 @@ using UnityEngine;
 public class UI : MonoBehaviour
 {
     public static UI instance;
+    public GameObject gameOverPanel;
     public GameObject buildAreaMenu;
     public GameObject buildMenu;
-    public Funds funds;
     
     private BuildArea currentBuildArea;
     private Vector3 menuPosition;
@@ -29,6 +29,11 @@ public class UI : MonoBehaviour
     {
         HideBuildAreaMenu();
         HideBuildMenu();
+    }
+
+    public void ShowGameOver()
+    {
+        gameOverPanel.SetActive(true);
     }
 
     public void ShowBuildAreaMenu(BuildArea buildArea)
