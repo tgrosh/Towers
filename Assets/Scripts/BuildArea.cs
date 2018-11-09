@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildArea : MonoBehaviour
-{
-    public GameObject pulseCannonPrefab;
-    public UI ui;
-    
+{    
     private void OnMouseDown()
     {
-        ui.ShowBuildAreaMenu(this);
+        UI.instance.ShowBuildAreaMenu(this);
     }
 
     public void Build(Buildable buildable)
