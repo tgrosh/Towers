@@ -22,7 +22,10 @@ public class WaveSpawner : MonoBehaviour {
     }
 
     void Start () {
-		
+		foreach (Wave wave in waves)
+        {
+            UI.instance.PushWave(wave);
+        }
 	}
 	
 	void Update () {
@@ -35,7 +38,7 @@ public class WaveSpawner : MonoBehaviour {
 
         if (waveTimer > waves[currentWave].waveDelay)
         {
-            SpawnWave(waves[currentWave]); 
+            SpawnWave(waves[currentWave]);
         }
 	}
 
@@ -60,6 +63,7 @@ public class WaveSpawner : MonoBehaviour {
             {
                 currentWave++;
                 waveTimer = 0;
+                UI.instance.PopWave();
             }
         }
     }

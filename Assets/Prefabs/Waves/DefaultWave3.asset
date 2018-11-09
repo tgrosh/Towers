@@ -15,4 +15,4 @@ MonoBehaviour:
   - agentPrefab: {fileID: 1632626333517762, guid: ea977fb3f2cc81e48a5025a37edd08df,
       type: 2}
     groupSize: 3
-  waveDelay: 3
+  waveDelay: 5

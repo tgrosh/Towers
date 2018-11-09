@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyAgent : MonoBehaviour
 {
+    public Sprite icon;
+
     NavMeshAgent agent;
 
     // Use this for initialization
