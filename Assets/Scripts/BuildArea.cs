@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class BuildArea : MonoBehaviour
 {
-    public GameObject cannonToSpawn;
-
-    // Use this for initialization
-    void Start()
+    public GameObject pulseCannonPrefab;
+    public UI ui;
+    
+    private void OnMouseDown()
     {
-        Instantiate(cannonToSpawn, transform);
+        ui.ShowBuildAreaMenu(this);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Build(Buildable buildable)
     {
-
+        if (Funds.instance.Spend(buildable.fundsCost))
+        {
+            Instantiate(buildable.gameObject, transform);
+        }
     }
 }

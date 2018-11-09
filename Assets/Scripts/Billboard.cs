@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
 public class Billboard : MonoBehaviour { 
-	void Update() { 
-		transform.LookAt(Camera.main.transform.position, -Camera.main.transform.up); 
-		//transform.rotation = Camera.main.transform.rotation;
-	} 
+    void LateUpdate()
+    {
+        transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward,
+            transform.up);
+    }
 }

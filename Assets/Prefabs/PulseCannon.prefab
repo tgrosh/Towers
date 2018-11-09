@@ -659,6 +659,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 114398592784221936, guid: 366c5bb504b119e499d2e0d0a2bfa4c4,
     type: 2}
   projectileSpawnPosition: {fileID: 4940414119626104}
+  fundsCost: 75
 --- !u!135 &135297857159213748
 SphereCollider:
   m_ObjectHideFlags: 1

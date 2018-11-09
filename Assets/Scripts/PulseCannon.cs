@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PulseCannon : MonoBehaviour
+public class PulseCannon : Buildable
 {
     public GameObject currentTarget;
     public GameObject body;
@@ -11,17 +11,11 @@ public class PulseCannon : MonoBehaviour
     public float fireRate; //seconds per shot
     public PlasmaPulse projectilePrefab;
     public Transform projectileSpawnPosition;
-
+    
     List<GameObject> targets = new List<GameObject>();
     float fireTimer;
     float lookTime;
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
