@@ -7,6 +7,7 @@ public class UI : MonoBehaviour
 {
     public static UI instance;
     public GameObject gameOverPanel;
+    public GameObject youWinPanel;
     public GameObject buildAreaMenu;
     public GameObject buildMenu;
     public int wavesToDisplay;
@@ -39,6 +40,11 @@ public class UI : MonoBehaviour
     public void ShowGameOver()
     {
         gameOverPanel.SetActive(true);
+    }
+
+    public void ShowYouWin()
+    {
+        youWinPanel.SetActive(true);
     }
 
     public void ShowBuildAreaMenu(BuildArea buildArea)

@@ -7,6 +7,7 @@ public class WaveSpawner : MonoBehaviour {
     public float spawnDelay;
     public Wave[] waves;
     public Color color = Color.green;
+    public int wavesRemaining;
 
     float waveTimer;
     float groupTimer;
@@ -23,6 +24,7 @@ public class WaveSpawner : MonoBehaviour {
 
     void Start ()
     {
+        wavesRemaining = waves.Length;
         int wavesDisplayed = 0;
         foreach (Wave wave in waves)
         {
@@ -69,6 +71,8 @@ public class WaveSpawner : MonoBehaviour {
             {
                 currentWave++;
                 waveTimer = 0;
+
+                wavesRemaining--;
                 UI.instance.DequeueWave();
                 if (waves.Length >= currentWave + UI.instance.wavesToDisplay)
                 {
