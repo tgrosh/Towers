@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MissileLauncher : Buildable {
+public class MissileLauncher : MonoBehaviour {
     public GameObject currentTarget;
     public GameObject body;
     public float lookSpeed;

@@ -11,9 +11,9 @@ public class BuildArea : MonoBehaviour
 
     public void Build(Buildable buildable)
     {
-        if (Funds.instance.Spend(buildable.fundsCost))
+        if (Funds.instance.Spend(buildable.fundsCost) && Scrap.instance.Spend(buildable.scrapCost))
         {
-            Instantiate(buildable.gameObject, transform);
+            Instantiate(buildable.gameObject, transform.position, transform.rotation, transform);
         }
     }
 }

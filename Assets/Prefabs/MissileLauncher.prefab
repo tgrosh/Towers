@@ -231,6 +231,7 @@ GameObject:
   - component: {fileID: 4398658230505824}
   - component: {fileID: 135595630406105022}
   - component: {fileID: 114871543410214350}
+  - component: {fileID: 114290355864199742}
   m_Layer: 2
   m_Name: MissileLauncher
   m_TagString: Untagged
@@ -923,6 +924,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114290355864199742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1975620214044544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86ab1847a768454faa2c93d1bc41ebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fundsCost: 100
+  scrapCost: 50
 --- !u!114 &114871543410214350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -934,8 +948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393680ba582745d4599cb61c666a1b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fundsCost: 100
-  scrapCost: 50
   currentTarget: {fileID: 0}
   body: {fileID: 1717688562060300}
   lookSpeed: 2

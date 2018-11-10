@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PulseCannon : Buildable
+public class PulseCannon : MonoBehaviour
 {
     public GameObject currentTarget;
     public GameObject body;

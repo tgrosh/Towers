@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 4720819479372108}
   - component: {fileID: 135297857159213748}
   - component: {fileID: 114267249183742072}
+  - component: {fileID: 114967965910337048}
   m_Layer: 2
   m_Name: PulseCannon
   m_TagString: Untagged
@@ -652,7 +653,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c62be95de13fb4eae40869632e1897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fundsCost: 75
   currentTarget: {fileID: 0}
   body: {fileID: 1148940567211604}
   lookSpeed: 2
@@ -660,6 +660,19 @@ MonoBehaviour:
   projectilePrefab: {fileID: 114398592784221936, guid: 366c5bb504b119e499d2e0d0a2bfa4c4,
     type: 2}
   projectileSpawnPosition: {fileID: 4940414119626104}
+--- !u!114 &114967965910337048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1335903795359756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86ab1847a768454faa2c93d1bc41ebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fundsCost: 75
+  scrapCost: 0
 --- !u!135 &135297857159213748
 SphereCollider:
   m_ObjectHideFlags: 1
