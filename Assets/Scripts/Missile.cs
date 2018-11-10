@@ -55,8 +55,13 @@ public class Missile : MonoBehaviour {
 
     private void Explode()
     {
+        ParticleSystem parts = transform.GetComponentInChildren<ParticleSystem>();
+        parts.Stop();
+        parts.transform.SetParent(null, true);
+
         GameObject obj = Instantiate(explosionEffect, transform.position, transform.rotation, transform.parent);
         Destroy(obj, 5);
         Destroy(gameObject);
+        Destroy(parts.gameObject, 5);
     }
 }
