@@ -2707,7 +2707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b862c39f08bde46ba2998cb48110dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveSpawner: {fileID: 0}
+  enemyWaveSpawner: {fileID: 1857434836}
 --- !u!4 &880591637
 Transform:
   m_ObjectHideFlags: 0
@@ -4612,6 +4612,12 @@ MonoBehaviour:
   globalOffset: 0
   currentAngle: 0
   index: 0
+--- !u!114 &1857434836 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114049107690707794, guid: deedfdfc50c122f46bb40fe0442a8c70,
+    type: 2}
+  m_PrefabInternal: {fileID: 1925940752}
+  m_Script: {fileID: 11500000, guid: 97aefe396d10fd24f9158f66bd7ec70c, type: 3}
 --- !u!1 &1864471501
 GameObject:
   m_ObjectHideFlags: 0
