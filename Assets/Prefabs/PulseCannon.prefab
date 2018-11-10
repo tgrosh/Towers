@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33433934801262414}
   - component: {fileID: 23004182399319222}
   - component: {fileID: 136427179747284778}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4846128539209740}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BodyContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4940414119626104}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ProjectileSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 4720819479372108}
   - component: {fileID: 135297857159213748}
   - component: {fileID: 114267249183742072}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PulseCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 33599973507897922}
   - component: {fileID: 23235863012365410}
   - component: {fileID: 135475513880000832}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 33845255591615288}
   - component: {fileID: 23538456429722190}
   - component: {fileID: 136681830183034572}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BarrelFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 33839969125273050}
   - component: {fileID: 23618614980362660}
   - component: {fileID: 136210468156519402}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Shaft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 33553546907272176}
   - component: {fileID: 23548725070463920}
   - component: {fileID: 65204558770326344}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BodyFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 33422446152863834}
   - component: {fileID: 23912616352506880}
   - component: {fileID: 65575853105606298}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 33463104858964704}
   - component: {fileID: 23215014820419468}
   - component: {fileID: 136057928394505572}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -652,6 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c62be95de13fb4eae40869632e1897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fundsCost: 75
   currentTarget: {fileID: 0}
   body: {fileID: 1148940567211604}
   lookSpeed: 2
@@ -659,7 +660,6 @@ MonoBehaviour:
   projectilePrefab: {fileID: 114398592784221936, guid: 366c5bb504b119e499d2e0d0a2bfa4c4,
     type: 2}
   projectileSpawnPosition: {fileID: 4940414119626104}
-  fundsCost: 75
 --- !u!135 &135297857159213748
 SphereCollider:
   m_ObjectHideFlags: 1

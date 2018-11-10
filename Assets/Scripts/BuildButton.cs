@@ -15,7 +15,7 @@ public class BuildButton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        button.interactable = Funds.instance.HasFunds(buildable.fundsCost);
+        button.interactable = Funds.instance.HasFunds(buildable.fundsCost) && Scrap.instance.HasScrap(buildable.scrapCost);
 	}
 
     public void OnClick()

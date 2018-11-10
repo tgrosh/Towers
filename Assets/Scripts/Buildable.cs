@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Buildable : MonoBehaviour {
     public int fundsCost;
-
+    public int scrapCost;
 }
