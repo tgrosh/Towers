@@ -788,7 +788,7 @@ GameObject:
   - component: {fileID: 478331534}
   - component: {fileID: 478331533}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BuildMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -829,7 +829,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 478331534}
   m_OnClick:
     m_PersistentCalls:
@@ -1640,7 +1640,7 @@ GameObject:
   - component: {fileID: 648055861}
   - component: {fileID: 648055860}
   m_Layer: 5
-  m_Name: Button
+  m_Name: UpgradeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1686,9 +1686,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 3
+      - m_Target: {fileID: 2044394493}
+        m_MethodName: OnUpgradeClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3538,6 +3538,11 @@ Prefab:
       value: 
       objectReference: {fileID: 114290355864199742, guid: ec2c10a2b0e44fd4fbea0c92fbadfc29,
         type: 2}
+    - target: {fileID: 114408139750060222, guid: 374e08358e66f4f4eaeae9ffcf2413d0,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 374e08358e66f4f4eaeae9ffcf2413d0, type: 2}
   m_IsPrefabAsset: 0
@@ -3944,6 +3949,11 @@ Prefab:
       value: 
       objectReference: {fileID: 114967965910337048, guid: cf0afc889fcd51946a0cce356e3ff558,
         type: 2}
+    - target: {fileID: 114408139750060222, guid: 374e08358e66f4f4eaeae9ffcf2413d0,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 374e08358e66f4f4eaeae9ffcf2413d0, type: 2}
   m_IsPrefabAsset: 0
@@ -5601,6 +5611,8 @@ MonoBehaviour:
   youWinPanel: {fileID: 1464356672}
   buildAreaMenu: {fileID: 2015085848}
   buildMenu: {fileID: 1843706711}
+  buildButton: {fileID: 478331533}
+  upgradeButton: {fileID: 648055860}
   wavesToDisplay: 3
   wavePanel: {fileID: 1089738343}
   waveUIPrefab: {fileID: 1930170493953552, guid: 16c05d15e1d340b438c5f8ad69584a01,

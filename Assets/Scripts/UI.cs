@@ -10,6 +10,8 @@ public class UI : MonoBehaviour
     public GameObject youWinPanel;
     public GameObject buildAreaMenu;
     public GameObject buildMenu;
+    public Button buildButton;
+    public Button upgradeButton;
     public int wavesToDisplay;
     public GameObject wavePanel;
     public GameObject waveUIPrefab;
@@ -75,11 +77,27 @@ public class UI : MonoBehaviour
         menu.GetComponent<RectTransform>().position = menuPosition;
     }
 
+    public void ToggleBuildButton(bool enable)
+    {
+        buildButton.interactable = enable;
+    }
+
+    public void ToggleUpgradeButton(bool enable)
+    {
+        upgradeButton.interactable = enable;
+    }
+
     public void OnBuildClick(Buildable buildable)
     {
         currentBuildArea.Build(buildable);
         HideBuildMenu();
-    }    
+    }
+
+    public void OnUpgradeClick()
+    {
+        currentBuildArea.Upgrade();
+        HideBuildAreaMenu();
+    }
 
     public void EnqueueWave(Wave wave)
     {
