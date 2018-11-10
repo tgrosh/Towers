@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemyAgent : MonoBehaviour
 {
     public Sprite icon;
+    public int scrapValue;
 
     NavMeshAgent agent;
 
@@ -22,10 +23,9 @@ public class EnemyAgent : MonoBehaviour
 
         agent.destination = GameObject.FindGameObjectWithTag("End").transform.position;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void OnDestroy()
     {
-
+        Scrap.instance.Earn(scrapValue);
     }
 }

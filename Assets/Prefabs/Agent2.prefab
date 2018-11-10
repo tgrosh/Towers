@@ -487,6 +487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 9456177f2b7c440bebefbc9c14e19009, type: 3}
+  scrapValue: 24
 --- !u!135 &135357036366594038
 SphereCollider:
   m_ObjectHideFlags: 1
