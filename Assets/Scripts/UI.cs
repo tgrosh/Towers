@@ -39,6 +39,15 @@ public class UI : MonoBehaviour
         HideBuildMenu();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            HideBuildAreaMenu();
+            HideBuildMenu();
+        }
+    }
+
     public void ShowGameOver()
     {
         gameOverPanel.SetActive(true);

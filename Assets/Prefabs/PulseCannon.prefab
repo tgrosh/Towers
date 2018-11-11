@@ -2702,11 +2702,11 @@ MonoBehaviour:
     fundsCost: 0
     scrapCost: 0
   - tier: 1
-    fundsCost: 30
-    scrapCost: 15
+    fundsCost: 35
+    scrapCost: 25
   - tier: 2
-    fundsCost: 70
-    scrapCost: 45
+    fundsCost: 65
+    scrapCost: 50
   currentTierIndex: 0
 --- !u!114 &114967965910337048
 MonoBehaviour:
