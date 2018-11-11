@@ -5482,7 +5482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9d62b149fe49a4797daea170586806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentFunds: 50
+  currentFunds: 100
   incomePerInterval: 7
   incomeInterval: 2
   fundsText: {fileID: 504792977}
@@ -5497,7 +5497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f38ca3f14da664e90f649f1bce03de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentScrap: 50
+  currentScrap: 100
   incomePerInterval: 0
   incomeInterval: 0
   scrapText: {fileID: 1435573814}
