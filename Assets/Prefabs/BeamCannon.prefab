@@ -4980,11 +4980,11 @@ MonoBehaviour:
     fundsCost: 0
     scrapCost: 0
   - tier: 1
-    fundsCost: 35
-    scrapCost: 25
+    fundsCost: 55
+    scrapCost: 0
   - tier: 2
-    fundsCost: 65
-    scrapCost: 50
+    fundsCost: 100
+    scrapCost: 0
   currentTierIndex: 0
 --- !u!114 &114564112714237250
 MonoBehaviour:
@@ -5012,17 +5012,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
   lookSpeed: 2
-  laserPrefab: {fileID: 114961880151626020, guid: d6c65dde212286940adaf255b94f5351,
-    type: 2}
   tier1Actor: {fileID: 1610057603158686}
   tier1Body: {fileID: 1841234337255942}
   tier1ProjectileSpawnPosition: {fileID: 4025734064034216}
+  tier1Range: 20
+  tier1LaserPrefab: {fileID: 114961880151626020, guid: d6c65dde212286940adaf255b94f5351,
+    type: 2}
   tier2Actor: {fileID: 1655659371604816}
   tier2Body: {fileID: 1196205964221834}
   tier2ProjectileSpawnPosition: {fileID: 4858292463753750}
+  tier2Range: 24
+  tier2LaserPrefab: {fileID: 114961880151626020, guid: d6c65dde212286940adaf255b94f5351,
+    type: 2}
   tier3Actor: {fileID: 1529796925948182}
   tier3Body: {fileID: 1990335277720430}
   tier3ProjectileSpawnPosition: {fileID: 4792942926231778}
+  tier3Range: 24
+  tier3LaserPrefab: {fileID: 114961880151626020, guid: 34db848c5af94ff43827e04e004edd15,
+    type: 2}
 --- !u!135 &135497889119027376
 SphereCollider:
   m_ObjectHideFlags: 1

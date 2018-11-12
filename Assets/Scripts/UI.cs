@@ -46,6 +46,9 @@ public class UI : MonoBehaviour
             HideBuildAreaMenu();
             HideBuildMenu();
         }
+
+        ToggleBuildButton(currentBuildArea != null && currentBuildArea.currentBuildable == null);
+        ToggleUpgradeButton(currentBuildArea != null && currentBuildArea.currentUpgradable != null && currentBuildArea.currentUpgradable.CanUpgrade());
     }
 
     public void ShowGameOver()

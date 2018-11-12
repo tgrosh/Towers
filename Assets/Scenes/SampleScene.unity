@@ -5546,7 +5546,7 @@ GameObject:
   - component: {fileID: 2037261303}
   - component: {fileID: 2037261304}
   m_Layer: 0
-  m_Name: ResourceManager
+  m_Name: Resources
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5576,7 +5576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9d62b149fe49a4797daea170586806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentFunds: 100
+  currentFunds: 500
   incomePerInterval: 7
   incomeInterval: 2
   fundsText: {fileID: 504792977}
@@ -5591,7 +5591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f38ca3f14da664e90f649f1bce03de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentScrap: 100
+  currentScrap: 500
   incomePerInterval: 0
   incomeInterval: 0
   scrapText: {fileID: 1435573814}

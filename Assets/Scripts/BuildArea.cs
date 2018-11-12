@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class BuildArea : MonoBehaviour
 {
-    Buildable currentBuildable;
-    Upgradable currentUpgradable;
+    public Buildable currentBuildable;
+    public Upgradable currentUpgradable;
 
     private void OnMouseUpAsButton()
     {
-        UI.instance.ShowBuildAreaMenu(this);
-        UI.instance.ToggleBuildButton(currentBuildable == null);
-        UI.instance.ToggleUpgradeButton(currentUpgradable != null && currentUpgradable.CanUpgrade());
+        UI.instance.ShowBuildAreaMenu(this);        
     }
-
+    
     public void Build(Buildable buildable)
     {
         if (Funds.instance.Spend(buildable.fundsCost) && Scrap.instance.Spend(buildable.scrapCost))
