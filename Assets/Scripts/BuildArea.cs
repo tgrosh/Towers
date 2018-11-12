@@ -29,4 +29,15 @@ public class BuildArea : MonoBehaviour
             currentUpgradable.Upgrade();
         }
     }
+
+    public void Sell()
+    {
+        if (currentBuildable != null)
+        {
+            Funds.instance.Earn(currentBuildable.fundsCost / 2);
+            Destroy(currentBuildable.gameObject);
+            currentBuildable = null;
+            currentUpgradable = null;
+        }
+    }
 }

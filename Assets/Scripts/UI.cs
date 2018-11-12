@@ -12,6 +12,7 @@ public class UI : MonoBehaviour
     public GameObject buildMenu;
     public Button buildButton;
     public Button upgradeButton;
+    public Button sellButton;
     public int wavesToDisplay;
     public GameObject wavePanel;
     public GameObject waveUIPrefab;
@@ -47,8 +48,9 @@ public class UI : MonoBehaviour
             HideBuildMenu();
         }
 
-        ToggleBuildButton(currentBuildArea != null && currentBuildArea.currentBuildable == null);
-        ToggleUpgradeButton(currentBuildArea != null && currentBuildArea.currentUpgradable != null && currentBuildArea.currentUpgradable.CanUpgrade());
+        buildButton.interactable = (currentBuildArea != null && currentBuildArea.currentBuildable == null);
+        upgradeButton.interactable = (currentBuildArea != null && currentBuildArea.currentUpgradable != null && currentBuildArea.currentUpgradable.CanUpgrade());
+        sellButton.interactable = (currentBuildArea != null && currentBuildArea.currentBuildable != null);
     }
 
     public void ShowGameOver()
@@ -88,17 +90,7 @@ public class UI : MonoBehaviour
         menu.SetActive(show);
         menu.GetComponent<RectTransform>().position = menuPosition;
     }
-
-    public void ToggleBuildButton(bool enable)
-    {
-        buildButton.interactable = enable;
-    }
-
-    public void ToggleUpgradeButton(bool enable)
-    {
-        upgradeButton.interactable = enable;
-    }
-
+    
     public void OnBuildClick(Buildable buildable)
     {
         currentBuildArea.Build(buildable);
@@ -108,6 +100,12 @@ public class UI : MonoBehaviour
     public void OnUpgradeClick()
     {
         currentBuildArea.Upgrade();
+        HideBuildAreaMenu();
+    }
+
+    public void OnSellClick()
+    {
+        currentBuildArea.Sell();
         HideBuildAreaMenu();
     }
 
