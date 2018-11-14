@@ -13,7 +13,7 @@ public class Health : MonoBehaviour {
         UpdateHealthBar();
     }
 
-    public void Harm(int amount)
+    public void Harm(float amount)
     {
         currentHealth -= amount;
         if (currentHealth < 0)
@@ -33,7 +33,7 @@ public class Health : MonoBehaviour {
         }
     }
 
-    public void Heal(int amount)
+    public void Heal(float amount)
     {
         currentHealth -= amount;
         if (currentHealth > maxHealth)
