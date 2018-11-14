@@ -29,13 +29,15 @@ public class BeamCannon : MonoBehaviour {
     GameObject body;
     Transform projectileSpawnPosition;
     Upgradable upgradable;
-    List<GameObject> targets = new List<GameObject>();
+    List<GameObject> unshieldedTargets = new List<GameObject>();
+    List<GameObject> shieldedTargets = new List<GameObject>();
     float fireTimer;
     float lookTime;
     int currentTier;
     bool firing;
     BeamLaser laser;
     SphereCollider rangeCollider;
+    List<GameObject> targetList;
 
     private void Start()
     {
@@ -51,23 +53,51 @@ public class BeamCannon : MonoBehaviour {
             ApplyTier(upgradable.currentTierIndex + 1);
         }
 
-        if (targets.Count > 0)
+        //determine which list to work from
+        if (shieldedTargets.Count > 0)
         {
-            if (targets[0] == null)
+            targetList = shieldedTargets;
+        }
+        else if (unshieldedTargets.Count > 0)
+        {
+            targetList = unshieldedTargets;
+        } else
+        {
+            targetList = null;
+        }
+
+        if (targetList != null)
+        {
+            if (currentTarget != targetList[0])
             {
-                targets.RemoveAt(0);
+                currentTarget = targetList[0];
+                ResetTarget();
+            }
+
+            if (currentTarget == null)
+            {
+                targetList.Remove(currentTarget);
                 ResetTarget();
                 return;
             }
-
+            
             lookTime += Time.deltaTime;
-            Vector3 direction = targets[0].transform.position - body.transform.position;
+            Vector3 direction = currentTarget.transform.position - body.transform.position;
             Quaternion toRotation = Quaternion.LookRotation(direction);
             body.transform.rotation = Quaternion.Slerp(body.transform.rotation, toRotation, lookSpeed * lookTime);
 
             if (Vector3.Angle(body.transform.transform.forward, direction) < 1f)
             {
                 Fire();
+            }
+            
+            if (!HasActiveShield(currentTarget))
+            {
+                if (shieldedTargets.Remove(currentTarget))
+                {
+                    unshieldedTargets.Add(currentTarget);
+                    ResetTarget();
+                }
             }
         }
     }
@@ -87,7 +117,7 @@ public class BeamCannon : MonoBehaviour {
         if (!firing)
         {            
             laser = Instantiate(laserPrefab, projectileSpawnPosition.position, projectileSpawnPosition.rotation, projectileSpawnPosition);
-            laser.Fire(targets[0].transform);
+            laser.Fire(targetList[0].transform);
         }
         
         firing = true;
@@ -130,11 +160,24 @@ public class BeamCannon : MonoBehaviour {
         ResetTarget();
     }
 
+    private bool HasActiveShield(GameObject target)
+    {
+        Shield shield = target.GetComponent<Shield>();
+
+        return (shield != null && shield.currentShield > 0);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("EnemyAgent"))
-        {
-            targets.Add(other.gameObject);
+        {   
+            if (HasActiveShield(other.gameObject))
+            {
+                shieldedTargets.Add(other.gameObject);
+            } else
+            {
+                unshieldedTargets.Add(other.gameObject);
+            }
             lookTime = 0f;
         }
     }
@@ -143,8 +186,12 @@ public class BeamCannon : MonoBehaviour {
     {
         if (other.CompareTag("EnemyAgent"))
         {
-            targets.Remove(other.gameObject);
-            ResetTarget();
+            shieldedTargets.Remove(other.gameObject);
+            unshieldedTargets.Remove(other.gameObject);
+            if (currentTarget == other.gameObject)
+            {
+                ResetTarget();
+            }
         }
     }
 }

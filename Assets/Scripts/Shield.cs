@@ -17,13 +17,12 @@ public class Shield : MonoBehaviour {
     private void Update()
     {
         shield.SetActive(currentShield > 0);
-        animator.SetBool("takingDamage", false);
     }
 
     public void Harm(float amount)
     {
         currentShield -= amount;
-        animator.SetBool("takingDamage", true);
+        animator.SetTrigger("takeDamage");
         if (currentShield < 0)
         {
             currentShield = 0;            
