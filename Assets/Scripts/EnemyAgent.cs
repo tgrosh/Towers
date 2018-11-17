@@ -8,7 +8,7 @@ public class EnemyAgent : MonoBehaviour
     public Sprite icon;
     public int scrapValue;
 
-    NavMeshAgent agent;
+    protected NavMeshAgent agent;
 
     // Use this for initialization
     void Start()
@@ -20,8 +20,7 @@ public class EnemyAgent : MonoBehaviour
             transform.position = closestHit.position;
             agent.enabled = true;
         }
-
-        agent.destination = GameObject.FindGameObjectWithTag("End").transform.position;
+        agent.destination = GameObject.FindGameObjectWithTag("PlayerBase").transform.position;
     }
     
     private void OnDestroy()

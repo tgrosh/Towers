@@ -15,7 +15,7 @@ public class PlasmaPulse : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        damageTarget = target.gameObject.GetComponent<Damage>();
+        damageTarget = target.root.GetComponent<Damage>();
     }
 
     // Update is called once per frame
