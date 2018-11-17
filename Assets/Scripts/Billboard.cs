@@ -4,6 +4,6 @@ public class Billboard : MonoBehaviour {
     void LateUpdate()
     {
         transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward,
-            transform.up);
+            Camera.main.transform.up);
     }
 }
