@@ -10,6 +10,7 @@ TagManager:
   - PlayerBase
   - EnemyBase
   - PlayerAgent
+  - HitTarget
   layers:
   - Default
   - TransparentFX

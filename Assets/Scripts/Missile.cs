@@ -44,11 +44,14 @@ public class Missile : MonoBehaviour {
         Collider[] colliders = Physics.OverlapSphere(targetPosition, damageRadius);
         foreach (Collider hit in colliders)
         {
-            Damage damage = hit.GetComponent<Damage>();
-
-            if (damage != null)
+            if (hit.gameObject.CompareTag("HitTarget"))
             {
-                damage.Harm(damageAmount, damageType);
+                Damage damage = hit.transform.root.GetComponent<Damage>();
+
+                if (damage != null)
+                {
+                    damage.Harm(damageAmount, damageType);
+                }
             }
         }
     }

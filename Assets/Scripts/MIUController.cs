@@ -64,7 +64,7 @@ public class MIUController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.root.CompareTag(targetTag))
+        if (other.gameObject.CompareTag("HitTarget") && other.transform.root.CompareTag(targetTag))
         {
             targets.Add(other.gameObject);
             lookTime = 0f;
@@ -73,7 +73,7 @@ public class MIUController : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(targetTag))
+        if (other.gameObject.CompareTag("HitTarget") && other.transform.root.CompareTag(targetTag))
         {
             targets.Remove(other.gameObject);
             lookTime = 0f;

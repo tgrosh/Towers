@@ -118,7 +118,7 @@ public class PulseCannon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("EnemyAgent"))
+        if (other.gameObject.CompareTag("HitTarget") && other.transform.root.CompareTag("EnemyAgent"))
         {
             targets.Add(other.gameObject);
             lookTime = 0f;
@@ -127,7 +127,7 @@ public class PulseCannon : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("EnemyAgent"))
+        if (other.gameObject.CompareTag("HitTarget") && other.transform.root.CompareTag("EnemyAgent"))
         {
             targets.Remove(other.gameObject);
             lookTime = 0f;

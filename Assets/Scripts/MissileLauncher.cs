@@ -111,7 +111,7 @@ public class MissileLauncher : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("EnemyAgent"))
+        if (other.transform.root.CompareTag("EnemyAgent"))
         {
             targets.Add(other.gameObject);
             lookTime = 0f;
@@ -120,7 +120,7 @@ public class MissileLauncher : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("EnemyAgent"))
+        if (other.transform.root.CompareTag("EnemyAgent"))
         {
             targets.Remove(other.gameObject);
             lookTime = 0f;

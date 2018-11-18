@@ -86,7 +86,7 @@ public class BeamCannon : MonoBehaviour {
             Quaternion toRotation = Quaternion.LookRotation(direction);
             body.transform.rotation = Quaternion.Slerp(body.transform.rotation, toRotation, lookSpeed * lookTime);
 
-            if (Vector3.Angle(body.transform.transform.forward, direction) < 1f)
+            if (Vector3.Angle(body.transform.forward, direction) < 1f)
             {
                 Fire();
             }
@@ -162,15 +162,15 @@ public class BeamCannon : MonoBehaviour {
 
     private bool HasActiveShield(GameObject target)
     {
-        Shield shield = target.GetComponent<Shield>();
+        Shield shield = target.transform.root.GetComponent<Shield>();
 
         return (shield != null && shield.currentShield > 0);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("EnemyAgent"))
-        {   
+        if (other.gameObject.CompareTag("HitTarget") && other.transform.root.CompareTag("EnemyAgent"))
+        {
             if (HasActiveShield(other.gameObject))
             {
                 shieldedTargets.Add(other.gameObject);
@@ -184,7 +184,7 @@ public class BeamCannon : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("EnemyAgent"))
+        if (other.gameObject.CompareTag("HitTarget") && other.transform.root.CompareTag("EnemyAgent"))
         {
             shieldedTargets.Remove(other.gameObject);
             unshieldedTargets.Remove(other.gameObject);

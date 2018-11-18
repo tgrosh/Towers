@@ -28,7 +28,7 @@ public class BeamLaser : MonoBehaviour {
     public void Fire(Transform target)
     {
         this.target = target;
-        damageTarget = this.target.gameObject.GetComponent<Damage>();
+        damageTarget = this.target.transform.root.GetComponent<Damage>();
         line = GetComponentInChildren<LineRenderer>();   
     }
 
