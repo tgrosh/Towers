@@ -14,7 +14,7 @@ public class Endpoint : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (transform.parent.gameObject.CompareTag("PlayerBase") && other.GetComponent<EnemyAgent>() != null)
+        if (transform.parent.gameObject.CompareTag("PlayerBase") && other.GetComponent<Agent>() != null)
         {
             UI.instance.ShowGameOver();
             endPointCamera.SetActive(true);

@@ -3,20 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Base : MonoBehaviour {
-    public BaseOwner owner;
+    public UnitOwner owner;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    WaveSpawner waveSpawner;
+
+    private void OnMouseUpAsButton()
+    {
+        UI.instance.ShowBaseMenu(this);
+    }
+
+    private void Start()
+    {
+        waveSpawner = GetComponentInChildren<WaveSpawner>();
+    }
+
+    public void SpawnWave(Wave wave)
+    {
+        waveSpawner.SpawnWave(wave);
+    }
 }
 
-public enum BaseOwner
+public enum UnitOwner
 {
     Player,
     Enemy

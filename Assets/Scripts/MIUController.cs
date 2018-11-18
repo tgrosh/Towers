@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class MIUController : MonoBehaviour {
+    public UnitOwner owner;
     public GameObject actor;
     [Range(0, 1)]
     public float speedAnimatorFactor;
@@ -17,11 +18,20 @@ public class MIUController : MonoBehaviour {
     List<GameObject> targets = new List<GameObject>();
     Transform currentTarget;
     float lookTime;
-    private float fireTimer;
+    float fireTimer;
+    string targetTag;
 
     void Start () {
         agent = GetComponent<NavMeshAgent>();
         actorAnimator = actor.GetComponent<Animator>();
+
+        if (CompareTag("PlayerAgent"))
+        {
+            targetTag = "EnemyAgent";
+        } else if (CompareTag("EnemyAgent"))
+        {
+            targetTag = "PlayerAgent";
+        }
     }
 
     private void Update()
@@ -54,7 +64,7 @@ public class MIUController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.root.CompareTag("PlayerAgent"))
+        if (other.transform.root.CompareTag(targetTag))
         {
             targets.Add(other.gameObject);
             lookTime = 0f;
@@ -63,7 +73,7 @@ public class MIUController : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("PlayerAgent"))
+        if (other.CompareTag(targetTag))
         {
             targets.Remove(other.gameObject);
             lookTime = 0f;

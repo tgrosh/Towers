@@ -46,11 +46,11 @@ public class WaveSpawner : MonoBehaviour {
 
         if (waveTimer > waves[currentWave].waveDelay)
         {
-            SpawnWave(waves[currentWave]);
+            SpawnNextWave();
         }
 	}
 
-    void SpawnWave(Wave wave)
+    void SpawnNextWave()
     {
         if (allAgents.Count == 0)
         {
@@ -79,6 +79,14 @@ public class WaveSpawner : MonoBehaviour {
                     UI.instance.EnqueueWave(waves[currentWave + UI.instance.wavesToDisplay - 1]);
                 }
             }
+        }
+    }
+
+    public void SpawnWave(Wave wave)
+    {
+        foreach (GameObject agent in wave.GetAllAgents())
+        {
+            Spawn(agent);
         }
     }
     

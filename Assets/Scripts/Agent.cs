@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAgent : MonoBehaviour
+public class Agent : MonoBehaviour
 {
     public Sprite icon;
     public int scrapValue;
 
-    protected NavMeshAgent agent;
+    NavMeshAgent agent;
+    GameObject destination;
 
     // Use this for initialization
     void Start()
@@ -20,7 +21,15 @@ public class EnemyAgent : MonoBehaviour
             transform.position = closestHit.position;
             agent.enabled = true;
         }
-        agent.destination = GameObject.FindGameObjectWithTag("PlayerBase").transform.position;
+
+        if (CompareTag("PlayerAgent"))
+        {
+            agent.destination = GameObject.FindGameObjectWithTag("EnemyBase").transform.position;
+        }
+        else if (CompareTag("EnemyAgent"))
+        {
+            agent.destination = GameObject.FindGameObjectWithTag("PlayerBase").transform.position;
+        }
     }
     
     private void OnDestroy()

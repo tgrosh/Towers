@@ -8,6 +8,7 @@ public class UI : MonoBehaviour
     public static UI instance;
     public GameObject gameOverPanel;
     public GameObject youWinPanel;
+    public GameObject baseMenu;
     public GameObject buildAreaMenu;
     public GameObject buildMenu;
     public Button buildButton;
@@ -17,7 +18,8 @@ public class UI : MonoBehaviour
     public GameObject wavePanel;
     public GameObject waveUIPrefab;
     public GameObject groupUIPrefab;
-    
+
+    private Base currentBase;
     private BuildArea currentBuildArea;
     private Vector3 menuPosition;
     private List<Wave> waves = new List<Wave>();
@@ -70,6 +72,18 @@ public class UI : MonoBehaviour
         ToggleMenu(buildAreaMenu, true);
     }
 
+    public void ShowBaseMenu(Base playerBase)
+    {
+        currentBase = playerBase;
+        menuPosition = Input.mousePosition;
+        ToggleMenu(baseMenu, true);
+    }
+
+    public void HideBaseMenu()
+    {
+        ToggleMenu(baseMenu, false);
+    }
+
     public void HideBuildAreaMenu()
     {
         ToggleMenu(buildAreaMenu, false);
@@ -90,7 +104,13 @@ public class UI : MonoBehaviour
         menu.SetActive(show);
         menu.GetComponent<RectTransform>().position = menuPosition;
     }
-    
+
+    public void OnSpawnWaveClick(Wave wave)
+    {
+        currentBase.SpawnWave(wave);
+        HideBaseMenu();
+    }
+
     public void OnBuildClick(Buildable buildable)
     {
         currentBuildArea.Build(buildable);
@@ -117,7 +137,7 @@ public class UI : MonoBehaviour
         foreach (WaveGroup waveGroup in wave.groups)
         {
             GameObject waveGroupUI = Instantiate(groupUIPrefab, waveUI.transform.GetChild(0).transform);
-            waveGroupUI.GetComponentInChildren<Image>().sprite = waveGroup.agentPrefab.GetComponent<EnemyAgent>().icon;
+            waveGroupUI.GetComponentInChildren<Image>().sprite = waveGroup.agentPrefab.GetComponent<Agent>().icon;
             waveGroupUI.GetComponentInChildren<Text>().text = "x" + waveGroup.groupSize;
         }
     }

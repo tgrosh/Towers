@@ -6,12 +6,12 @@ public class Player : MonoBehaviour
 {
     public WaveSpawner enemyWaveSpawner;
 
-    EnemyAgent[] enemies;
+    Agent[] enemies;
     bool enemiesEncountered;
     
     // Update is called once per frame
     void Update () {
-        enemies = FindObjectsOfType<EnemyAgent>();
+        enemies = FindObjectsOfType<Agent>();
         if (enemiesEncountered && enemies.Length == 0 && enemyWaveSpawner.wavesRemaining == 0)
         {
             UI.instance.ShowYouWin();

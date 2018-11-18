@@ -31,6 +31,9 @@ public class PlasmaPulse : MonoBehaviour
                 DealDamage();
                 Explode();
             }
+        } else
+        {
+            Destroy(gameObject);
         }
     }
 
