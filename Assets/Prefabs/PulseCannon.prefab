@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 114267249183742072}
   - component: {fileID: 114967965910337048}
   - component: {fileID: 114772255217348838}
+  - component: {fileID: 114607020717205940}
   m_Layer: 2
   m_Name: PulseCannon
   m_TagString: Untagged
@@ -1032,7 +1033,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1335903795359756}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000035762784}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1041,7 +1042,7 @@ Transform:
   - {fileID: 4352458656595724}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 179.99998, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4740965736156386
 Transform:
   m_ObjectHideFlags: 1
@@ -2686,6 +2687,18 @@ MonoBehaviour:
   tier3ProjectileSpawnPosition: {fileID: 4940414119626104}
   tier3Range: 27
   tier3FireInterval: 0.5
+--- !u!114 &114607020717205940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1335903795359756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba88254005f64d408dc3c674a77f6b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
 --- !u!114 &114772255217348838
 MonoBehaviour:
   m_ObjectHideFlags: 1

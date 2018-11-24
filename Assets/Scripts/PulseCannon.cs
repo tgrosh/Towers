@@ -32,6 +32,7 @@ public class PulseCannon : MonoBehaviour
     GameObject body;
     Transform projectileSpawnPosition;
     Upgradable upgradable;
+    Activatable activatable;
     List<GameObject> targets = new List<GameObject>();
     float fireTimer;
     float lookTime;
@@ -39,7 +40,8 @@ public class PulseCannon : MonoBehaviour
     SphereCollider rangeCollider;
 
     private void Start()
-    {        
+    {
+        activatable = GetComponent<Activatable>();
         upgradable = GetComponent<Upgradable>();
         rangeCollider = GetComponent<SphereCollider>();
     }
@@ -52,6 +54,8 @@ public class PulseCannon : MonoBehaviour
             ApplyTier(upgradable.currentTierIndex + 1);
         }
 
+        if (!activatable.isActive) return;
+        
         if (targets.Count > 0)
         {
             if (targets[0] == null)

@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 114564112714237250}
   - component: {fileID: 114400660566697606}
   - component: {fileID: 114937600022049494}
+  - component: {fileID: 114411659901367848}
   m_Layer: 2
   m_Name: BeamCannon
   m_TagString: Untagged
@@ -1397,8 +1398,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1107228700887288}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000035762784}
-  m_LocalPosition: {x: 48.52, y: 0, z: 45.42}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4188592706437126}
@@ -1406,7 +1407,7 @@ Transform:
   - {fileID: 4144777242905814}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 179.99998, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4241787159385756
 Transform:
   m_ObjectHideFlags: 1
@@ -4986,6 +4987,18 @@ MonoBehaviour:
     fundsCost: 100
     scrapCost: 0
   currentTierIndex: 0
+--- !u!114 &114411659901367848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1107228700887288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba88254005f64d408dc3c674a77f6b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
 --- !u!114 &114564112714237250
 MonoBehaviour:
   m_ObjectHideFlags: 1

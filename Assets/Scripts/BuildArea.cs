@@ -6,6 +6,15 @@ public class BuildArea : MonoBehaviour
 {
     public Buildable currentBuildable;
     public Upgradable currentUpgradable;
+    public Transform floor;
+
+    private Animator animator;
+    private Buildable buildablePrefab;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void OnMouseUpAsButton()
     {
@@ -16,9 +25,8 @@ public class BuildArea : MonoBehaviour
     {
         if (Funds.instance.Spend(buildable.fundsCost) && Scrap.instance.Spend(buildable.scrapCost))
         {
-            GameObject obj = Instantiate(buildable.gameObject, transform.position, transform.rotation, transform);
-            currentBuildable = obj.GetComponent<Buildable>();
-            currentUpgradable = currentBuildable.GetComponent<Upgradable>();
+            buildablePrefab = buildable;
+            animator.SetTrigger("open");
         }
     }
 
@@ -39,5 +47,24 @@ public class BuildArea : MonoBehaviour
             currentBuildable = null;
             currentUpgradable = null;
         }
+    }
+
+    public void OnFloorDown()
+    {
+        GameObject obj = Instantiate(buildablePrefab.gameObject, floor);
+        currentBuildable = obj.GetComponent<Buildable>();
+        currentUpgradable = currentBuildable.GetComponent<Upgradable>();
+
+        buildablePrefab = null;
+    }
+
+    public void OnActivate()
+    {
+        currentBuildable.GetComponent<Activatable>().Activate();
+    }
+
+    public void OnDeactivate()
+    {
+        currentBuildable.GetComponent<Activatable>().Deactivate();
     }
 }

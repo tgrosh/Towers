@@ -29,6 +29,7 @@ public class BeamCannon : MonoBehaviour {
     GameObject body;
     Transform projectileSpawnPosition;
     Upgradable upgradable;
+    Activatable activatable;
     List<GameObject> unshieldedTargets = new List<GameObject>();
     List<GameObject> shieldedTargets = new List<GameObject>();
     float fireTimer;
@@ -41,6 +42,7 @@ public class BeamCannon : MonoBehaviour {
 
     private void Start()
     {
+        activatable = GetComponent<Activatable>();
         upgradable = GetComponent<Upgradable>();
         rangeCollider = GetComponent<SphereCollider>();
     }
@@ -52,6 +54,8 @@ public class BeamCannon : MonoBehaviour {
         {
             ApplyTier(upgradable.currentTierIndex + 1);
         }
+
+        if (!activatable.isActive) return;
 
         //determine which list to work from
         if (shieldedTargets.Count > 0)

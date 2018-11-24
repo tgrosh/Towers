@@ -31,10 +31,12 @@ public class MissileLauncher : MonoBehaviour {
     float fireTimer;
     float lookTime;
     Upgradable upgradable;
+    Activatable activatable;
     int currentTier;
 
     private void Start()
     {
+        activatable = GetComponent<Activatable>();
         upgradable = GetComponent<Upgradable>();
     }
 
@@ -45,6 +47,8 @@ public class MissileLauncher : MonoBehaviour {
         {
             ApplyTier(upgradable.currentTierIndex + 1);
         }
+
+        if (!activatable.isActive) return;
 
         if (targets.Count > 0)
         {

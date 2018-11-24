@@ -112,7 +112,7 @@ GameObject:
   m_Layer: 9
   m_Name: HitTarget
   m_TagString: HitTarget
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -361,7 +361,7 @@ GameObject:
   m_Layer: 9
   m_Name: ProjectileSpawnPosition
   m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1485,7 +1485,7 @@ MonoBehaviour:
   speedAnimatorFactor: 0.4
   lookSpeed: 2
   fireInterval: 0.75
-  projectilePrefab: {fileID: 114398592784221936, guid: e9e7d76daef51654daf59f35ad69ec75,
+  projectilePrefab: {fileID: 114398592784221936, guid: fc74e45e84a936543874c311a5587b82,
     type: 2}
   projectileSpawnPosition: {fileID: 4364821303114462}
 --- !u!114 &114363327719434896
